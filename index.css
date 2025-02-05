@@ -1,0 +1,92 @@
+/* General Styles */
+body {
+    background-color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Scoreboard Container */
+.scoreboard {
+    background-color: #6e2594;
+    width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 15px;
+    border: 5px solid goldenrod;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Team Sections */
+.team {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Score Display Box */
+.score-box {
+    background-color: black;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.score-display {
+    font-size: 50px;
+    color: red;
+    margin: 0;
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: lightgray;
+}
+
+/* Reset Button */
+.reset-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#reset-button {
+    font-size: 22px;
+    padding: 12px 25px;
+    cursor: pointer;
+    background-color: #990000;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+#reset-button:hover {
+    background-color: #cc0000;
+    transform: scale(1.1);
+}
