@@ -1,40 +1,31 @@
-// Initialize scores
-let homeScore = 0;
-let guestScore = 0;
-
-// Get the score elements
-const homeScoreEl = document.getElementById("home-score");
-const guestScoreEl = document.getElementById("guest-score");
-const resetButton = document.getElementById("reset-button");
-
-// Functions to update the score
+// Function to update the score
 function updateScore(team, points) {
-    if (team === "home") {
-        homeScore += points;
-        homeScoreEl.textContent = homeScore;
-    } else if (team === "guest") {
-        guestScore += points;
-        guestScoreEl.textContent = guestScore;
+    let scoreElement = document.getElementById(`${team}-score`);
+    let currentScore = parseInt(scoreElement.textContent);
+    scoreElement.textContent = currentScore + points;
+}
+
+// Function to reset the game
+function resetGame() {
+    document.getElementById("home-score").textContent = "0";
+    document.getElementById("guest-score").textContent = "0";
+}
+
+// Function to check orientation and adjust visibility
+function checkOrientation() {
+    if (window.innerHeight > window.innerWidth) {
+        // Portrait mode
+        document.querySelector(".rotate-message").style.display = "block";
+        document.querySelector(".scoreboard").style.display = "none";
+        document.querySelector(".reset-container").style.display = "none";
+    } else {
+        // Landscape mode
+        document.querySelector(".rotate-message").style.display = "none";
+        document.querySelector(".scoreboard").style.display = "flex";
+        document.querySelector(".reset-container").style.display = "flex";
     }
 }
 
-// Reset function
-function resetGame() {
-    console.log("Reset button clicked"); // Debugging
-    homeScore = 0;
-    guestScore = 0;
-    homeScoreEl.textContent = homeScore;
-    guestScoreEl.textContent = guestScore;
-}
-
-// Add event listeners for score buttons
-document.getElementById("home-plus-1").addEventListener("click", () => updateScore("home", 1));
-document.getElementById("home-plus-2").addEventListener("click", () => updateScore("home", 2));
-document.getElementById("home-plus-3").addEventListener("click", () => updateScore("home", 3));
-
-document.getElementById("guest-plus-1").addEventListener("click", () => updateScore("guest", 1));
-document.getElementById("guest-plus-2").addEventListener("click", () => updateScore("guest", 2));
-document.getElementById("guest-plus-3").addEventListener("click", () => updateScore("guest", 3));
-
-// Add event listener for the reset button
-resetButton.addEventListener("click", resetGame);
+// Listen for orientation changes
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("load", checkOrientation);

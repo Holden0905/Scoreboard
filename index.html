@@ -2,44 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Scoreboard</title>
     <link rel="stylesheet" href="index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
 </head>
 <body>
+
+    <!-- Rotate Message (Only visible in portrait mode) -->
+    <div class="rotate-message">
+        Please rotate your device to landscape mode for the best experience.
+    </div>
+
+    <!-- Scoreboard Container -->
     <div class="scoreboard">
         <div class="team">
             <h3>LAKERS</h3>
-            <div class="score-box">
-                <h2 id="home-score" class="score-display">0</h2>
-            </div>
+            <div class="score" id="home-score">0</div>
             <div class="button-container">
-                <button id="home-plus-1">+1</button>
-                <button id="home-plus-2">+2</button>
-                <button id="home-plus-3">+3</button>
+                <button onclick="updateScore('home', 1)">+1</button>
+                <button onclick="updateScore('home', 2)">+2</button>
+                <button onclick="updateScore('home', 3)">+3</button>
             </div>
         </div>
+
         <div class="team">
             <h3>AWAY</h3>
-            <div class="score-box">
-                <h2 id="guest-score" class="score-display">0</h2>
-            </div>
+            <div class="score" id="guest-score">0</div>
             <div class="button-container">
-                <button id="guest-plus-1">+1</button>
-                <button id="guest-plus-2">+2</button>
-                <button id="guest-plus-3">+3</button>
+                <button onclick="updateScore('guest', 1)">+1</button>
+                <button onclick="updateScore('guest', 2)">+2</button>
+                <button onclick="updateScore('guest', 3)">+3</button>
             </div>
-        </div>
-        <div class="rotate-message">
-            Please rotate your device to landscape mode for the best experience.
         </div>
     </div>
 
     <!-- Game Over (Reset) Button -->
     <div class="reset-container">
-        <button id="reset-button">Game Over</button>
+        <button id="reset-button" onclick="resetGame()">Game Over</button>
     </div>
 
     <script src="index.js"></script>
