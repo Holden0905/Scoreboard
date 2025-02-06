@@ -5,18 +5,19 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #e0e5ee;
+    min-height: 100vh; /* Fix for mobile cutoff */
+    background-color: #112244;
     color: white;
     font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Scoreboard Styling */
 .scoreboard {
     display: flex;
     justify-content: space-around;
-    background-color: #3a0647;
-    border: 5px solid rgb(163, 151, 11);
+    background-color: #0a1a33;
+    border: 5px solid black;
     border-radius: 15px;
     padding: 20px;
     width: 70%;
@@ -25,67 +26,64 @@ body {
     box-shadow: 0px 0px 10px black;
 }
 
+/* Individual Team Section */
 .team {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.score {
-    background-color: black;
-    color: red;
-    font-size: 50px;
-    font-weight: bold;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
-    width: 80px;
     text-align: center;
 }
 
-/* Buttons Styling */
-.button-container {
-    display: flex;
-    gap: 10px;
+/* Score Display */
+.score {
+    font-size: 80px;
+    font-weight: bold;
+    color: red;
+    background: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100px;
+    margin: auto;
+}
+
+/* Button Container */
+.buttons {
+    margin-top: 10px;
 }
 
 button {
+    font-size: 18px;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid white;
     background-color: transparent;
     color: white;
-    border: 2px solid white;
-    padding: 10px 15px;
-    font-size: 18px;
     cursor: pointer;
     border-radius: 5px;
 }
 
 button:hover {
-    background-color: white;
-    color: black;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Reset Button */
+/* Game Over Button */
 .reset-container {
     margin-top: 20px;
 }
 
-#reset-button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 15px 30px;
+.reset-button {
     font-size: 20px;
+    padding: 15px;
+    border: 3px solid white;
+    background-color: darkred;
+    color: white;
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-#reset-button:hover {
-    background-color: darkred;
+.reset-button:hover {
+    background-color: red;
 }
 
-/* Mobile Responsiveness */
+/* Fix for Mobile View */
 @media screen and (max-width: 768px) {
     .scoreboard {
         width: 95%;
@@ -93,30 +91,18 @@ button:hover {
         padding: 10px;
     }
 
-    .team {
-        width: 100%;
-    }
-
-    .button-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    #reset-button {
-        font-size: 18px;
-        padding: 10px 20px;
+    body {
+        padding-top: 10px; /* Prevent cutoff */
     }
 }
 
 /* Force Landscape Mode Warning */
 @media screen and (max-width: 768px) and (orientation: portrait) {
     body {
-        display: flex;
-        align-items: center;
         justify-content: center;
         text-align: center;
-        height: 100vh;
-        background-color: #112244;
+        min-height: 100vh;
+        padding: 20px; /* Prevent cutoff */
     }
 
     .scoreboard, .reset-container {
@@ -142,9 +128,3 @@ button:hover {
         display: flex;
     }
 }
-
-/* Default: Hide Rotate Message */
-.rotate-message {
-    display: none;
-}
-
